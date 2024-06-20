@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Demo Phone</string>
+    <string name="no_rec_found">No record found</string>
+    <string name="warning">Warning!!</string>
+    <string name="exit">Exit</string>
+    <string name="alert_msg">The application content is only visible during the working hours. Please come again in working hours.</string>
+</resources>
