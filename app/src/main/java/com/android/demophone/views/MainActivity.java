@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
             } else {
                 // Permission denied
-                System.out.println("--------Permission denied---->");
+                System.out.println("-------- Permission denied ---->");
             }
         }
     }
