@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean b = PermissionUtils.requestPermissions(this, PermissionUtils.RECORDING_PERMISSION);
 
-        System.out.println("-------- This is major bug fixed ---->");
+        System.out.println("-------- This is major bug fixed by SecondUser---->");
 
         if(b) {
             startActivity(new Intent(this, SpeechToTextActivity.class));
