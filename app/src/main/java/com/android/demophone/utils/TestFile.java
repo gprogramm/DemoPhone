@@ -98,15 +98,4 @@ public class TestFile {
 
         return calendar;
     }
-
-    /**
-     * This method returns the current time in HH:mm format
-     *
-     * @return
-     */
-    private static String getCurrentHourMin() {
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        return dateFormatter.format(calendar.getTime());
-    }
 }
