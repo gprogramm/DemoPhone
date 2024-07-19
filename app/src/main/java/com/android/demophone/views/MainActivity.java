@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+
 import com.android.demophone.R;
+import com.android.demophone.utils.DateUtils;
 import com.android.demophone.utils.PermissionUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("-------- This is major bug fixed by SecondUser---->");
         System.out.println("-------- This is major bug fixed by Main User---->");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String dateTime = DateUtils.segregateNextInteractionDateTime("2024-07-25T09:01:01Z");
+            if(!TextUtils.isEmpty(dateTime)) {
+                String[] arr = dateTime.split("\\|");
+                if(arr != null && arr.length == 2) {
+
+                }
+            }
+        }
 
         if(b) {
             startActivity(new Intent(this, SpeechToTextActivity.class));

@@ -1,9 +1,16 @@
 package com.android.demophone.utils;
 
+import android.os.Build;
 import android.text.TextUtils;
+
+import androidx.annotation.RequiresApi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -108,5 +115,41 @@ public class DateUtils {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm", Locale.getDefault());
         return dateFormatter.format(calendar.getTime());
+    }
+
+
+    public static String segregateNextInteractionDateTime(String dateTimeString) {
+        if(TextUtils.isEmpty(dateTimeString)) {
+            return "";
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+
+            // Parse the date-time string to a ZonedDateTime object
+            ZonedDateTime zonedDateTime = null;
+            zonedDateTime = ZonedDateTime.parse(dateTimeString, DateTimeFormatter.ISO_DATE_TIME);
+
+            // Extract the date component
+            LocalDate date = zonedDateTime.toLocalDate();
+
+            // Extract the time component
+            LocalTime time = zonedDateTime.toLocalTime();
+
+            // Define formatters for date and time
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+            // Format the date and time
+            String formattedDate = date.format(dateFormatter);
+            String formattedTime = time.format(timeFormatter);
+
+            // Print the formatted date and time
+            System.out.println("Date: " + formattedDate);
+            System.out.println("Time: " + formattedTime);
+
+            return (formattedDate + "|" + formattedTime);
+        } else {
+            return "";
+        }
     }
 }
