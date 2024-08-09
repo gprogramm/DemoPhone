@@ -55,4 +55,7 @@ dependencies {
 
     // Library for downloading image from URL and render on image component
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    // Web-Rtc
+    implementation 'org.webrtc:google-webrtc:1.0.32006'
 }
